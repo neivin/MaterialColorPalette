@@ -13,9 +13,9 @@ import java.util.ArrayList;
 /**
  * Created by Neivin on 2016-08-22.
  */
-public class ColorListAdaper extends ArrayAdapter<ColorValue> {
+public class ColorListAdapter extends ArrayAdapter<ColorValue> {
 
-    public ColorListAdaper(Context context, ArrayList<ColorValue> colorList) {
+    public ColorListAdapter(Context context, ArrayList<ColorValue> colorList) {
         super(context, 0, colorList);
     }
 

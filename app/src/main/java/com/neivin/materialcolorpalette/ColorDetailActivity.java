@@ -29,12 +29,10 @@ public class ColorDetailActivity extends AppCompatActivity {
         if(getSupportActionBar() != null)
             getSupportActionBar().setTitle(mColorName);
 
-        ColorListAdaper listAdaper = new ColorListAdaper(this, mColorList);
+        ColorListAdapter listAdapter = new ColorListAdapter(this, mColorList);
 
         ListView colorList = (ListView) findViewById(R.id.color_list);
-        colorList.setAdapter(listAdaper);
-
-
+        colorList.setAdapter(listAdapter);
     }
 
     private void populateColorList(){
