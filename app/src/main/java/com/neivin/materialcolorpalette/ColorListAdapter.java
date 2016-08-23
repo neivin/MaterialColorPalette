@@ -23,8 +23,8 @@ public class ColorListAdapter extends ArrayAdapter<ColorValue> {
     public View getView(int position, View convertView, ViewGroup parent) {
         View listItemView = convertView;
 
-        if(listItemView == null){
-            listItemView = LayoutInflater.from(getContext()).inflate(R.layout.list_item_layout,parent,false);
+        if (listItemView == null) {
+            listItemView = LayoutInflater.from(getContext()).inflate(R.layout.list_item_layout, parent, false);
         }
 
         ColorValue color = getItem(position);
@@ -40,24 +40,24 @@ public class ColorListAdapter extends ArrayAdapter<ColorValue> {
         // Set the background color
         listItemView.setBackgroundColor(Color.parseColor(color.getHexCode()));
 
+        // Algorithm source: Blaskovicz on StackOverflow
+        // http://stackoverflow.com/questions/7785510/android-java-determining-if-text-color-will-blend-in-with-the-background?rq=1
+        // Determine if the text will blend with the background or not
 
-        /* How to tell if the color is light or dark from its hex value.
-         * Credit to Dunes on StackOverflow
-         */
-
-        // remove hash character from string
-        String rawFontColor = hexCode.substring(1,hexCode.length());
+        //remove hash character from string
+        String rawFontColor = hexCode.substring(1, hexCode.length());
 
         // convert hex string to int
-        int rgb = Integer.parseInt(rawFontColor, 16);
+        int rgbColor = Integer.parseInt(rawFontColor, 16);
 
-        float [] hsv = new float[3];
+        // Get RGB values of color
+        float[] rgb = {Color.red(rgbColor), Color.green(rgbColor), Color.blue(rgbColor)};
 
-        Color.RGBToHSV(Color.red(rgb), Color.green(rgb), Color.blue(rgb), hsv);
+        // Get an acceptable contrast ratio that coincides with material guidelines
+        int brightness = (int) Math.sqrt(rgb[0] * rgb[0] * .241 + rgb[1]
+                * rgb[1] * .691 + rgb[2] * rgb[2] * .068);
 
-        float brightness = hsv[2];
-
-        if (brightness <= 0.8) {
+        if (brightness < 150) {
             // use white text
             colorGradeView.setTextColor(Color.WHITE);
             colorHexCodeView.setTextColor(Color.WHITE);
@@ -66,7 +66,6 @@ public class ColorListAdapter extends ArrayAdapter<ColorValue> {
             colorGradeView.setTextColor(Color.BLACK);
             colorHexCodeView.setTextColor(Color.BLACK);
         }
-
 
         return listItemView;
     }
