@@ -10,27 +10,24 @@
 
     <TextView
         android:id="@+id/color_grade"
-        android:textColor="@color/white"
-        style="@style/bold_white_shadow_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="16dp"
         android:layout_weight="1"
-        tools:text="600" />
+        tools:text="600"
+        tools:textColor="@color/white" />
 
     <TextView
         android:id="@+id/color_hex_code"
-        android:textColor="@color/white"
-        style="@style/bold_white_shadow_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="16dp"
         android:layout_weight="1"
-
         android:gravity="end"
         android:textAlignment="gravity"
-        tools:text="#FFF333" />
+        tools:text="#FFF333"
+        tools:textColor="@color/white" />
 
 </LinearLayout>
