@@ -3,15 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
 
     android:id="@+id/grid_item"
-    android:padding="16dp"
     android:layout_width="match_parent"
-    android:minHeight="136dp"
     android:layout_height="match_parent"
+    android:minHeight="136dp"
+    android:padding="16dp"
     tools:background="#c46b56">
 
     <TextView
         android:id="@+id/color_name"
-        style="@style/bold_white_shadow_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

@@ -10,6 +10,7 @@
 
     <TextView
         android:id="@+id/color_grade"
+        android:textColor="@color/white"
         style="@style/bold_white_shadow_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -20,6 +21,7 @@
 
     <TextView
         android:id="@+id/color_hex_code"
+        android:textColor="@color/white"
         style="@style/bold_white_shadow_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
