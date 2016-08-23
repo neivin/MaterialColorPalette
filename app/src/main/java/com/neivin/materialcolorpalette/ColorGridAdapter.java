@@ -3,7 +3,6 @@ package com.neivin.materialcolorpalette;
 import android.content.Context;
 import android.graphics.Color;
 import android.support.v4.content.ContextCompat;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,7 +46,7 @@ public class ColorGridAdapter extends ArrayAdapter<String> {
 
 
         String resourceName = colorName.toLowerCase().replace(' ', '_') + "_500";
-        Log.i("Adapter", "colorName: " + colorName);
+        //Log.i("Adapter", "colorName: " + colorName);
         gridItemView.setBackgroundColor(ContextCompat.getColor(getContext(), getContext().getResources().getIdentifier(resourceName, "color", "com.neivin.materialcolorpalette")));
 
 

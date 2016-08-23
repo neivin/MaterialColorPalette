@@ -50,7 +50,7 @@ public class ColorDetailActivity extends AppCompatActivity {
 
                 ClipData clip = ClipData.newPlainText(mColorName + " " + colorGrade, hexValue);
                 clipboard.setPrimaryClip(clip);
-                
+
                 Toast.makeText(ColorDetailActivity.this,
                         mColorName + " " + colorGrade +" copied to clipboard", Toast.LENGTH_SHORT).show();
             }

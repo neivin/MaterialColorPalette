@@ -4,16 +4,16 @@
     android:id="@+id/grid_item"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:minHeight="136dp"
     android:padding="16dp"
+    android:minHeight="136dp"
     tools:background="#c46b56">
 
     <TextView
         android:id="@+id/color_name"
-        android:textSize="14sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
+        android:textSize="14sp"
         tools:text="Deep Purple" />
 </RelativeLayout>
