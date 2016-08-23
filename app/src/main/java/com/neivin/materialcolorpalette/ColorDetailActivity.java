@@ -1,8 +1,13 @@
 package com.neivin.materialcolorpalette;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -11,11 +16,15 @@ public class ColorDetailActivity extends AppCompatActivity {
 
     String mColorName;
     ArrayList<ColorValue> mColorList;
+    ClipboardManager clipboard;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_color_detail);
+
+        // Set up Clipboard for copying color vals
+        clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
 
         // Obtain the name of the color
         mColorName = getIntent().getStringExtra("COLOR_NAME");
@@ -33,6 +42,19 @@ public class ColorDetailActivity extends AppCompatActivity {
 
         ListView colorList = (ListView) findViewById(R.id.color_list);
         colorList.setAdapter(listAdapter);
+        colorList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String hexValue = mColorList.get(position).getHexCode();
+                String colorGrade = mColorList.get(position).getColorGrade();
+
+                ClipData clip = ClipData.newPlainText(mColorName + " " + colorGrade, hexValue);
+                clipboard.setPrimaryClip(clip);
+                
+                Toast.makeText(ColorDetailActivity.this,
+                        mColorName + " " + colorGrade +" copied to clipboard", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void populateColorList(){
